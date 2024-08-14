@@ -1,4 +1,4 @@
-package com.liveness.sdk.core.facedetector
+package io.liveness.flash.core.facedetector
 
 import android.content.Context
 import android.graphics.Canvas

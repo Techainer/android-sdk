@@ -1,4 +1,4 @@
-package com.liveness.sdk.core
+package io.liveness.flash.core
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.util.Size
 import android.view.LayoutInflater
 import android.view.View
@@ -23,15 +24,15 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.google.mlkit.vision.face.Face
-import com.liveness.sdk.core.api.HttpClientUtilsBio
-import com.liveness.sdk.core.facedetector.FaceDetectorBio
-import com.liveness.sdk.core.facedetector.Frame
-import com.liveness.sdk.core.facedetector.LensFacingBio
-import com.liveness.sdk.core.model.LivenessModelBio
-import com.liveness.sdk.core.utils.AppConfigBio
-import com.liveness.sdk.core.utils.AppPreferenceUtilsBio
-import com.liveness.sdk.core.utils.AppUtilsBio
-import com.liveness.sdk.core.utils.TotpUtilsBio
+import io.liveness.flash.core.api.HttpClientUtilsBio
+import io.liveness.flash.core.facedetector.FaceDetectorBio
+import io.liveness.flash.core.facedetector.Frame
+import io.liveness.flash.core.facedetector.LensFacingBio
+import io.liveness.flash.core.model.LivenessModelBio
+import io.liveness.flash.core.utils.AppConfigBio
+import io.liveness.flash.core.utils.AppPreferenceUtilsBio
+import io.liveness.flash.core.utils.AppUtilsBio
+import io.liveness.flash.core.utils.TotpUtilsBio
 import com.nimbusds.jose.shaded.gson.Gson
 import com.otaliastudios.cameraview.CameraException
 import com.otaliastudios.cameraview.CameraListener
@@ -55,7 +56,8 @@ internal class MainLiveNessImageActivity : Fragment() {
     private var isCapture = false
     private var lstBgDefault: ArrayList<Int> = arrayListOf(R.drawable.img_0, R.drawable.img_1, R.drawable.img_2, R.drawable.img_3)
 
-    private var isFirstVideo = true
+    private var isFirstVideo = false
+    private var isCallBackDone = false
     private var typeScreen = ""
     private lateinit var cameraViewVideo: CameraView
     private lateinit var btnCapture: Button
@@ -91,6 +93,7 @@ internal class MainLiveNessImageActivity : Fragment() {
         view.findViewById<ImageView>(R.id.imvBack).setOnClickListener {
             activity?.finish()
         }
+        isFirstVideo = AppPreferenceUtilsBio(requireContext()).isFirstVideo()
         initCamera(view)
         if (checkPermissions()) {
             cameraViewVideo.open()
@@ -151,14 +154,15 @@ internal class MainLiveNessImageActivity : Fragment() {
     private fun initCamera(view: View) {
         apply {
 //            pathVideo = Environment.getExternalStorageDirectory().toString() + "/Download/" + "VideoLiveNess" + System.currentTimeMillis() + ".mp4"
-            val folderVideo = File(requireActivity().cacheDir, "VideoLiveNess")
-            if (folderVideo.exists()) {
-                folderVideo.deleteRecursively()
-            }
-            folderVideo.mkdir()
-            folderVideo.createNewFile()
-            val fileMp4 = File(folderVideo.parentFile , "Video${System.currentTimeMillis()}.mp4")
-            pathVideo = fileMp4.absolutePath
+//            val folderVideo = File(requireActivity().cacheDir, "VideoLiveNess")
+//            if (folderVideo.exists()) {
+//                folderVideo.deleteRecursively()
+//            }
+//            isCallBackDone = false
+//            folderVideo.mkdir()
+//            folderVideo.createNewFile()
+//            val fileMp4 = File(folderVideo.parentFile , "Video${System.currentTimeMillis()}.mp4")
+//            pathVideo = fileMp4.absolutePath
             val lensFacing = Facing.FRONT
             setupCamera(lensFacing, view)
         }
@@ -217,15 +221,15 @@ internal class MainLiveNessImageActivity : Fragment() {
         cameraViewVideo.addCameraListener(object : CameraListener() {
             override fun onCameraOpened(options: CameraOptions) {
                 super.onCameraOpened(options)
-//                val folderVideo = File(requireActivity().cacheDir, "VideoLiveNess")
-//                if (folderVideo.exists()) {
-//                    folderVideo.deleteRecursively()
-//                }
-//                folderVideo.mkdir()
-//                folderVideo.createNewFile()
-//                val fileMp4 = File(folderVideo.parentFile , "Video${System.currentTimeMillis()}.mp4")
-
-                cameraViewVideo.takeVideoSnapshot(File(pathVideo))
+                val folderVideo = File(requireActivity().cacheDir, "VideoLiveNess")
+                if (folderVideo.exists()) {
+                    folderVideo.deleteRecursively()
+                }
+                folderVideo.mkdir()
+                folderVideo.createNewFile()
+                val fileMp4 = File(folderVideo.parentFile , "Video${System.currentTimeMillis()}.mp4")
+                pathVideo = fileMp4.absolutePath
+                cameraViewVideo.takeVideoSnapshot(fileMp4)
                 if (typeScreen != AppConfigBio.TYPE_SCREEN_REGISTER_FACE) {
 //                    cameraViewVideo.takeVideoSnapshot(File(pathVideo))
                 } else {
@@ -412,9 +416,11 @@ internal class MainLiveNessImageActivity : Fragment() {
                     message = "done smile",
                     action = 8,
                     livenessImage = image,
-                    pathVideo = pathVideo
+                    pathVideo = pathVideo,
+                    bgColor = bgColor
                 ))
         }.start()
+        onBackFragment()
     }
 
     fun checkLiveNess(imgLiveNess: String, bgColor: Int) {

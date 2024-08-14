@@ -1,8 +1,8 @@
-package com.liveness.sdk.core.utils
+package io.liveness.flash.core.utils
 
 import android.annotation.SuppressLint
 import android.view.View
-import com.liveness.sdk.core.model.LivenessRequestBio
+import io.liveness.flash.core.model.LivenessRequestBio
 
 /**
  * Created by Thuytv on 16/04/2024.

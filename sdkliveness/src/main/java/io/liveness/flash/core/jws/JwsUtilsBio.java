@@ -1,6 +1,6 @@
-package com.liveness.sdk.core.jws;
+package io.liveness.flash.core.jws;
 
-import com.liveness.sdk.core.utils.AppConfigBio;
+import io.liveness.flash.core.utils.AppConfigBio;
 import com.nimbusds.jose.EncryptionMethod;
 import com.nimbusds.jose.JWEAlgorithm;
 import com.nimbusds.jose.JWEHeader;

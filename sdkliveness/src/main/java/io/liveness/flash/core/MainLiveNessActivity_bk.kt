@@ -1,4 +1,4 @@
-//package com.liveness.sdk.core
+package io.liveness.flash.core//package io.liveness.flash.core
 //
 //import android.Manifest
 //import android.app.Activity
@@ -19,15 +19,15 @@
 //import androidx.core.content.ContextCompat
 //import androidx.core.content.res.ResourcesCompat
 //import com.google.mlkit.vision.face.Face
-//import com.liveness.sdk.core.api.HttpClientUtils
-//import com.liveness.sdk.core.facedetector.FaceDetector
-//import com.liveness.sdk.core.facedetector.Frame
-//import com.liveness.sdk.core.facedetector.LensFacing
-//import com.liveness.sdk.core.model.LivenessModel
-//import com.liveness.sdk.core.utils.AppConfig
-//import com.liveness.sdk.core.utils.AppPreferenceUtils
-//import com.liveness.sdk.core.utils.AppUtils
-//import com.liveness.sdk.core.utils.TotpUtils
+//import io.liveness.flash.core.api.HttpClientUtils
+//import io.liveness.flash.core.facedetector.FaceDetector
+//import io.liveness.flash.core.facedetector.Frame
+//import io.liveness.flash.core.facedetector.LensFacing
+//import io.liveness.flash.core.model.LivenessModel
+//import io.liveness.flash.core.utils.AppConfig
+//import io.liveness.flash.core.utils.AppPreferenceUtils
+//import io.liveness.flash.core.utils.AppUtils
+//import io.liveness.flash.core.utils.TotpUtils
 //import com.nimbusds.jose.shaded.gson.Gson
 //import com.otaliastudios.cameraview.CameraException
 //import com.otaliastudios.cameraview.CameraListener

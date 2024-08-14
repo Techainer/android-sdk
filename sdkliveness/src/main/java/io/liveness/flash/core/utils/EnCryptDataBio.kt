@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.liveness.sdk.core.utils
+package io.liveness.flash.core.utils
 
 import android.os.Build
 import android.security.keystore.KeyGenParameterSpec

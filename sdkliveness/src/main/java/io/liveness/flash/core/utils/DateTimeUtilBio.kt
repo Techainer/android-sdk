@@ -1,4 +1,4 @@
-package com.liveness.sdk.core.utils
+package io.liveness.flash.core.utils
 
 import java.text.DateFormat
 import java.text.ParseException

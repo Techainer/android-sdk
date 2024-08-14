@@ -1,4 +1,4 @@
-package com.liveness.sdk.core.utils
+package io.liveness.flash.core.utils
 
 import android.app.Activity
 import android.graphics.Bitmap

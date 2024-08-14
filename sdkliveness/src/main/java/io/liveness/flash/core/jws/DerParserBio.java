@@ -1,4 +1,4 @@
-package com.liveness.sdk.core.jws;
+package io.liveness.flash.core.jws;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

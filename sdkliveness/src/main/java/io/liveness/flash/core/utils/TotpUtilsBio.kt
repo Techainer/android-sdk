@@ -1,10 +1,10 @@
-package com.liveness.sdk.core.utils
+package io.liveness.flash.core.utils
 
 import android.content.Context
 import android.os.Build
 import android.util.Log
-import com.liveness.sdk.core.api.HttpClientUtilsBio.Companion.instance
-import com.liveness.sdk.core.jws.TOTPGeneratorBio
+import io.liveness.flash.core.api.HttpClientUtilsBio.Companion.instance
+import io.liveness.flash.core.jws.TOTPGeneratorBio
 import org.json.JSONObject
 import java.util.UUID
 

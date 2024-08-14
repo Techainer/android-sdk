@@ -1,4 +1,4 @@
-package com.liveness.sdk.core.facedetector
+package io.liveness.flash.core.facedetector
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -124,7 +124,8 @@ internal class FaceDetectorBio(
 //                                mainExecutor.execute { faceBoundsOverlay.updateFaces(faceBounds) }
                                 onFaceDetectionResultListener?.onDetectingFace(face)
                             }
-                        }
+                        } else
+                            onFaceDetectionResultListener?.onDetectingFace(face)
                     }
                 }else {
 //                    val faceBounds = faces.map { face -> face.toFaceBounds(this) }

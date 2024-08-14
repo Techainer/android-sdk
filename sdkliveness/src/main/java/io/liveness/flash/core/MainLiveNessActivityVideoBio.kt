@@ -1,4 +1,4 @@
-package com.liveness.sdk.core
+package io.liveness.flash.core
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -25,15 +25,15 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.google.mlkit.vision.face.Face
-import com.liveness.sdk.core.api.HttpClientUtilsBio
-import com.liveness.sdk.core.facedetector.FaceDetectorBio
-import com.liveness.sdk.core.facedetector.Frame
-import com.liveness.sdk.core.facedetector.LensFacingBio
-import com.liveness.sdk.core.model.LivenessModelBio
-import com.liveness.sdk.core.utils.AppConfigBio
-import com.liveness.sdk.core.utils.AppPreferenceUtilsBio
-import com.liveness.sdk.core.utils.AppUtilsBio
-import com.liveness.sdk.core.utils.TotpUtilsBio
+import io.liveness.flash.core.api.HttpClientUtilsBio
+import io.liveness.flash.core.facedetector.FaceDetectorBio
+import io.liveness.flash.core.facedetector.Frame
+import io.liveness.flash.core.facedetector.LensFacingBio
+import io.liveness.flash.core.model.LivenessModelBio
+import io.liveness.flash.core.utils.AppConfigBio
+import io.liveness.flash.core.utils.AppPreferenceUtilsBio
+import io.liveness.flash.core.utils.AppUtilsBio
+import io.liveness.flash.core.utils.TotpUtilsBio
 import com.nimbusds.jose.shaded.gson.Gson
 import com.otaliastudios.cameraview.CameraException
 import com.otaliastudios.cameraview.CameraListener
@@ -78,7 +78,6 @@ internal class MainLiveNessActivityVideoBio : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_live_ness_image)
-
         if (AppConfigBio.mCustomView != null) {
             findViewById<FrameLayout>(R.id.frameViewCustom).addView(AppConfigBio.mCustomView)
         }

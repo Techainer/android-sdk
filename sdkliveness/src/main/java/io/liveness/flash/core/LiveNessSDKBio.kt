@@ -1,4 +1,4 @@
-package com.liveness.sdk.core
+package io.liveness.flash.core
 
 import android.content.Context
 import android.content.Intent
@@ -7,12 +7,12 @@ import android.view.View
 import androidx.annotation.Keep
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
-import com.liveness.sdk.core.api.HttpClientUtilsBio
-import com.liveness.sdk.core.model.LivenessRequestBio
-import com.liveness.sdk.core.utils.AppConfigBio
-import com.liveness.sdk.core.utils.AppPreferenceUtilsBio
-import com.liveness.sdk.core.utils.CallbackAPIListenerBio
-import com.liveness.sdk.core.utils.CallbackLivenessListenerBio
+import io.liveness.flash.core.api.HttpClientUtilsBio
+import io.liveness.flash.core.model.LivenessRequestBio
+import io.liveness.flash.core.utils.AppConfigBio
+import io.liveness.flash.core.utils.AppPreferenceUtilsBio
+import io.liveness.flash.core.utils.CallbackAPIListenerBio
+import io.liveness.flash.core.utils.CallbackLivenessListenerBio
 
 /**
  * Created by Thuytv on 15/04/2024.

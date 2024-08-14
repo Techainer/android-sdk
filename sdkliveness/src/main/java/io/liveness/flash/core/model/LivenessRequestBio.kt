@@ -1,4 +1,4 @@
-package com.liveness.sdk.core.model
+package io.liveness.flash.core.model
 
 import androidx.annotation.Keep
 import com.nimbusds.jose.shaded.gson.annotations.SerializedName

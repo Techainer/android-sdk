@@ -1,8 +1,8 @@
-package com.liveness.sdk.core.jws
+package io.liveness.flash.core.jws
 
 import android.util.Log
-import com.liveness.sdk.core.utils.AppConfigBio
-import com.liveness.sdk.core.utils.codec.Base32Bio
+import io.liveness.flash.core.utils.AppConfigBio
+import io.liveness.flash.core.utils.codec.Base32Bio
 import java.nio.ByteBuffer
 import java.security.InvalidKeyException
 import java.security.NoSuchAlgorithmException

@@ -1,4 +1,4 @@
-package com.liveness.sdk.core.utils
+package io.liveness.flash.core.utils
 
 import android.annotation.SuppressLint
 import android.content.Context

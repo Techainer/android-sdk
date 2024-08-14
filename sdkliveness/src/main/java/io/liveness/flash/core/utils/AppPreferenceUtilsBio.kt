@@ -1,4 +1,4 @@
-package com.liveness.sdk.core.utils
+package io.liveness.flash.core.utils
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -130,6 +130,14 @@ internal class AppPreferenceUtilsBio(context: Context?) {
         return setValueBoolean(KEY_REGISTER_FACE, isRegister)
     }
 
+    fun isFirstVideo(): Boolean {
+        return getValueBoolean(KEY_FIRST_VIDEO)
+    }
+
+    fun setFirstVideo(isRegister: Boolean) {
+        return setValueBoolean(KEY_FIRST_VIDEO, isRegister)
+    }
+
     companion object {
         const val APP_SHARE_PREFERENCE_NAME = "mSharePreferenceName"
 
@@ -141,6 +149,7 @@ internal class AppPreferenceUtilsBio(context: Context?) {
         const val KEY_REGISTER_FACE = "KEY_REGISTER_FACE"
         const val KEY_SIGNATURE = "mSignature"
         const val KEY_ALIAS = "mKeystoreSecretAlias"
+        const val KEY_FIRST_VIDEO = "KEY_FIRST_VIDEO"
     }
 }
 

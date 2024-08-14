@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.liveness.sdk.core.utils.codec;
+package io.liveness.flash.core.utils.codec;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;

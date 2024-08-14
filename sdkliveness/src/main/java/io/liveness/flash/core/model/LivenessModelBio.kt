@@ -1,4 +1,4 @@
-package com.liveness.sdk.core.model
+package io.liveness.flash.core.model
 
 import androidx.annotation.Keep
 import com.nimbusds.jose.shaded.gson.annotations.SerializedName
@@ -31,5 +31,7 @@ data class LivenessModelBio(
     @field:SerializedName("transaction_id")
     var transactionID: String? = null,
     @field:SerializedName("action")
-    var action: Int? = null
+    var action: Int? = null,
+    @field:SerializedName("bgColor")
+    var bgColor: Int? = null
 )

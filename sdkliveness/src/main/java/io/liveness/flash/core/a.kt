@@ -1,4 +1,4 @@
-package com.liveness.sdk.core
+package io.liveness.flash.core
 
 class a {
 
