@@ -51,10 +51,6 @@ android {
         singleVariant("release") {
             withSourcesJar()
         }
-        multipleVariants {
-            allVariants()
-            withJavadocJar()
-        }
     }
     lint {
         abortOnError = false
@@ -63,6 +59,14 @@ android {
         baseline = file("lint-baseline.xml")
     }
 }
+
+//repositories {
+//    mavenCentral()
+//    google()
+//    jcenter()
+//    maven { url = uri("https://maven.google.com") }
+//    maven { url = uri("https://jitpack.io") }
+//}
 
 dependencies {
     implementation('androidx.appcompat:appcompat:1.4.1')
@@ -83,8 +87,8 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
 
-                groupId "io.liveness.flash"
-                artifactId "sdk-android"
+                groupId "com.github.Techainer"
+                artifactId "sdk-android-liveness"
                 version "v1.1.9"
             }
         }
