@@ -2,11 +2,20 @@ plugins {
     id('com.android.library')
     id('org.jetbrains.kotlin.android')
     id "com.klaxit.hiddensecrets" version "0.2.1"
-    id ('maven-publish')
+//    id ('maven-publish')
+}
+
+ext {
+    versionCode = 4
+    sdkVersion = 2
+    versionName = "1.${sdkVersion}.${versionCode}"
+    sdkGroup = "io.liveness.flash"
+    sdkArtifact = "core"
+    nameSpace = "${sdkGroup}.${sdkArtifact}"
 }
 
 android {
-    namespace 'io.liveness.flash.core'
+    namespace project.ext.nameSpace
     compileSdk 33
 
     defaultConfig {
@@ -40,18 +49,18 @@ android {
             path "src/main/cpp/CMakeLists.txt"
         }
     }
-    libraryVariants.all { variant ->
-        variant.outputs.all { output ->
-            if (outputFile != null && outputFileName.endsWith('.aar')) {
-                outputFileName = "sdk-${version}.aar"
-            }
-        }
-    }
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-        }
-    }
+//    libraryVariants.all { variant ->
+//        variant.outputs.all { output ->
+//            if (outputFile != null && outputFileName.endsWith('.aar')) {
+//                outputFileName = "sdk-${version}.aar"
+//            }
+//        }
+//    }
+//    publishing {
+//        singleVariant("release") {
+//            withSourcesJar()
+//        }
+//    }
     lint {
         abortOnError = false
         absolutePaths = false
@@ -81,23 +90,51 @@ dependencies {
 
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                from components.release
+//
+//                groupId "io.liveness.flash"
+//                artifactId "core"
+//                version "v1.2.3"
+//            }
+//        }
+//
+//        repositories {
+//            maven {
+//                name = "BuildFolder"
+//                url = "${project.buildDir}/repository"
+//            }
+//        }
+//    }
+//}
 
-                groupId "io.liveness.flash"
-                artifactId "core"
-                version "v1.2.2"
-            }
-        }
-
-        repositories {
-            maven {
-                name = "BuildFolder"
-                url = "${project.buildDir}/repository"
-            }
-        }
-    }
-}
+//publishing {
+//    repositories {
+//        maven {
+//            url = "$rootDir/repository"
+//            name = "local"
+//        }
+//    }
+//    publications {
+//        release(MavenPublication) {
+//            groupId = sdkGroup
+//            artifactId = sdkArtifact
+//            version = "$versionName" //TechChainer
+//            artifact("$rootDir/sdkliveness/build/outputs/aar/android-debug.aar")
+//            pom.withXml {
+//                def dependenciesNode = asNode().appendNode('dependencies')
+//                configurations.implementation.allDependencies.each { dependency ->
+//                    if (dependency.name != 'unspecified') {
+//                        def dependencyNode = dependenciesNode.appendNode('dependency')
+//                        dependencyNode.appendNode('groupId', dependency.group)
+//                        dependencyNode.appendNode('artifactId', dependency.name)
+//                        dependencyNode.appendNode('version', dependency.version)
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
