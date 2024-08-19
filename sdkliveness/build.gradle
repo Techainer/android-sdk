@@ -87,9 +87,9 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
 
-                groupId "com.github.Techainer"
-                artifactId "sdk-android-liveness"
-                version "v1.1.9"
+                groupId "io.liveness.flash"
+                artifactId "sdk-android"
+                version "v1.2.1"
             }
         }
 
