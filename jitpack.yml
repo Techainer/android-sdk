@@ -1,0 +1,8 @@
+# configuration file for building snapshots and releases with jitpack.io
+jdk:
+  - openjdk17
+before_install:
+  - ./scripts/prepareJitpackEnvironment.sh
+install:
+  - FILE="-Dfile=IdCardReader.aar"
+  - mvn install:install-file $FILE -DgroupId=com.github.Techainer -DartifactId=android-sdk -Dversion=1.2.8 -Dpackaging=aar -DgeneratePom=true

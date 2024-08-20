@@ -25,6 +25,7 @@ android {
         release {
             minifyEnabled true
             proguardFiles(getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro')
+            consumerProguardFiles("consumer-reles.pro")
 
         }
         debug {
@@ -50,7 +51,7 @@ android {
     libraryVariants.all { variant ->
         variant.outputs.all { output ->
             if (outputFile != null && outputFileName.endsWith('.aar')) {
-                outputFileName = "android-sdk-1.2.7.aar"
+                outputFileName = "android-sdk-1.2.8.aar"
             }
         }
     }
