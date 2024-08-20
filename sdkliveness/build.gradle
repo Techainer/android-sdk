@@ -13,7 +13,7 @@ android {
         minSdk 24
         targetSdk 33
         versionCode 230508
-        versionName "1.2.9"
+        versionName "1.2.11"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
 
@@ -51,7 +51,7 @@ android {
     libraryVariants.all { variant ->
         variant.outputs.all { output ->
             if (outputFile != null && outputFileName.endsWith('.aar')) {
-                outputFileName = "android-sdk-1.2.9.aar"
+                outputFileName = "android-sdk-1.2.11.aar"
             }
         }
     }
@@ -98,7 +98,7 @@ afterEvaluate {
 
                 groupId "io.liveness.flash"
                 artifactId "android-sdk"
-                version "1.2.9"
+                version "1.2.11"
 //                artifact "$buildDir/outputs/aar/sdk-android-release.aar"
             }
         }
